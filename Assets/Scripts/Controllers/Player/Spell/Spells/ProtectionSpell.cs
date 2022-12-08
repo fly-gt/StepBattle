@@ -8,7 +8,7 @@
     }
 
     public bool Use(UnitBaseBehaviour owner, UnitBaseBehaviour target) {
-        if (owner.PlayerTeam != target.PlayerTeam) {
+        if (owner != target) {
             return false;
         }
 

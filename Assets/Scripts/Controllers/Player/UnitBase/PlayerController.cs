@@ -4,7 +4,7 @@ public class PlayerController : UnitBaseBehaviour {
     public override void Initialize() {
         base.Initialize();
 
-        spellRandom = new SpellRandom(Context);
+        spellRandom = new SpellRandom(Context, spell);
         spell.SetSpell(spellRandom.GetSpell());
     }
 

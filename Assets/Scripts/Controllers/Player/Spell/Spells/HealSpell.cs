@@ -1,5 +1,8 @@
-﻿public class HealSpell : ISpell {
+﻿using UnityEngine;
+
+public class HealSpell : ISpell {
     private const int healthHeal = 1;
+    private const float healDistance = 4f;
     public void Initialize(UIUnitSpellBase uiSpell) {
         var context = new UnitSpellContext {
             Name = "ЛЧН",
@@ -9,7 +12,9 @@
     }
 
     public bool Use(UnitBaseBehaviour owner, UnitBaseBehaviour target) {
-        if (owner.PlayerTeam != target.PlayerTeam) {
+        var distanceRich = Vector3.Distance(owner.transform.position, target.transform.position) <= healDistance;
+
+        if (owner.PlayerTeam != target.PlayerTeam || !distanceRich) {
             return false;
         }
 
